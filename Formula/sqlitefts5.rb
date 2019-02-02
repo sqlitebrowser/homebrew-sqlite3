@@ -6,8 +6,6 @@ class Sqlitefts5 < Formula
   sha256 "5daa6a3fb7d1e8c767cd59c4ded8da6e4b00c61d3b466d0685e35c4dd6d7bf5d"
   revision 1
 
-  keg_only :provided_by_macos, "macOS provides an older sqlite3"
-
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
