@@ -10,7 +10,7 @@ class Sqlitefts5 < Formula
     root_url "https://nightlies.sqlitebrowser.org/jc_testing"
     cellar :any
     #sha256 "eaef16904d5b1ce29dee315b04ff8739dc35f6e2268684eb9add4609e7226042" => :sierra
-    #sha256 "eaef16904d5b1ce29dee315b04ff8739dc35f6e2268684eb9add4609e7226042" => :high_sierra
+    sha256 "0e4e06af4d14f7d1779538a305374266df5259b74aff9290f005a114dec260a5" => :high_sierra
     sha256 "6d0b15dcb76896ee7403c989496e553a1cc7b90f934233b0950ce6187397015e" => :mojave
   end
 
