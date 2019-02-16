@@ -9,9 +9,10 @@ class Sqlitefts5 < Formula
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/jc_testing"
     cellar :any
+    rebuild 1
     #sha256 "eaef16904d5b1ce29dee315b04ff8739dc35f6e2268684eb9add4609e7226042" => :sierra
-    sha256 "0e4e06af4d14f7d1779538a305374266df5259b74aff9290f005a114dec260a5" => :high_sierra
-    sha256 "6d0b15dcb76896ee7403c989496e553a1cc7b90f934233b0950ce6187397015e" => :mojave
+    sha256 "ad71d999e6b2290e6f43ffe942e5beca0c3f44b50d9dc654f18d35c1aa7f7387" => :high_sierra
+    sha256 "831ad3dd8c17bc08722019b7185a18e613768f7c91ce2858f8bf023ad0b9ec95" => :mojave
   end
 
   def install
