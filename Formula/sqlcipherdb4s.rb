@@ -6,7 +6,7 @@ class Sqlcipherdb4s < Formula
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
-    root_url "https://nightlies.sqlitebrowser.org/jc_testing"
+    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
     sha256 "b017765022c359fd2412c9b8ed113ce58d75e50e6d1d3b3fab2e25daccd46a66" => :mojave
     sha256 "f3324b872772528fade9fa1b9daf6ae72547789fe3c091188c81c73f3987f5b2" => :high_sierra
