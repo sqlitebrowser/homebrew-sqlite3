@@ -6,14 +6,13 @@ class Sqlitefts5 < Formula
   sha256 "50c39e85ea28b5ecfdb3f9e860afe9ba606381e21836b2849efca6a0bfe6ef6e"
   revision 1
 
-#  bottle do
-#    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-#    cellar :any
-#    rebuild 1
-#    #sha256 "eaef16904d5b1ce29dee315b04ff8739dc35f6e2268684eb9add4609e7226042" => :sierra
-#    sha256 "ad71d999e6b2290e6f43ffe942e5beca0c3f44b50d9dc654f18d35c1aa7f7387" => :high_sierra
-#    sha256 "831ad3dd8c17bc08722019b7185a18e613768f7c91ce2858f8bf023ad0b9ec95" => :mojave
-#  end
+  bottle do
+    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
+    cellar :any
+    rebuild 1
+    sha256 "49664b579b1ea92840fb9f0a32033c803a9b0efb0140dfa36f2db51fedd84a74" => :high_sierra
+    sha256 "eefe3ef8b7d4a0aa02436b673c3211bdf718b9869a950ed29fe2dc152011b791" => :mojave
+  end
 
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
