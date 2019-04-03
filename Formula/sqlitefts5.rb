@@ -9,7 +9,7 @@ class Sqlitefts5 < Formula
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
-    #sha256 "eefe3ef8b7d4a0aa02436b673c3211bdf718b9869a950ed29fe2dc152011b791" => :mojave
+    sha256 "f9588e984198c810d5d4188c8d5492eec1c4fdb8816be739627a8eb0bd2992dd" => :mojave
     sha256 "5f5e435a872d7eaa21d1ba291b28a74643fb7a5638525275ce4ab80bed35bf1e" => :high_sierra
   end
 
