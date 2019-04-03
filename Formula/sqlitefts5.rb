@@ -4,13 +4,13 @@ class Sqlitefts5 < Formula
   url "https://sqlite.org/2019/sqlite-autoconf-3270200.tar.gz"
   version "3.27.2"
   sha256 "50c39e85ea28b5ecfdb3f9e860afe9ba606381e21836b2849efca6a0bfe6ef6e"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
-    sha256 "49664b579b1ea92840fb9f0a32033c803a9b0efb0140dfa36f2db51fedd84a74" => :high_sierra
-    sha256 "eefe3ef8b7d4a0aa02436b673c3211bdf718b9869a950ed29fe2dc152011b791" => :mojave
+    #sha256 "49664b579b1ea92840fb9f0a32033c803a9b0efb0140dfa36f2db51fedd84a74" => :high_sierra
+    #sha256 "eefe3ef8b7d4a0aa02436b673c3211bdf718b9869a950ed29fe2dc152011b791" => :mojave
   end
 
   def install
@@ -19,6 +19,7 @@ class Sqlitefts5 < Formula
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
     ENV.append "CPPFLAGS", "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_GEOPOLY=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS5=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_STAT4=1"
