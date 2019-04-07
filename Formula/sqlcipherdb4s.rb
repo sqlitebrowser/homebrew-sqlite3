@@ -10,7 +10,7 @@ class Sqlcipherdb4s < Formula
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
     #sha256 "a16909ebca2e643e8c87be1e35a632872a33d542fc17de1449203002484e107f" => :mojave
-    #sha256 "7a846731eb5b7c4149ab464355e3fd5f015c0777afae7314451e4fe882269548" => :high_sierra
+    sha256 "7dbcdb76dee2f4be9b13a38cb3cd3aff55dab56e1e09028c4539a77ac8f1dace" => :high_sierra
   end
 
   depends_on "openssl"
