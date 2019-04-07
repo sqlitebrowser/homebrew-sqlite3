@@ -4,12 +4,13 @@ class Sqlcipherdb4s < Formula
   url "https://github.com/sqlcipher/sqlcipher/archive/v4.1.0.tar.gz"
   sha256 "65144ca3ba4c0f9cd4bae8c20bb42f2b84424bf29d1ebcf04c44a728903b1faa"
   head "https://github.com/sqlcipher/sqlcipher.git"
+  revision 1
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
-    sha256 "a16909ebca2e643e8c87be1e35a632872a33d542fc17de1449203002484e107f" => :mojave
-    sha256 "7a846731eb5b7c4149ab464355e3fd5f015c0777afae7314451e4fe882269548" => :high_sierra
+    #sha256 "a16909ebca2e643e8c87be1e35a632872a33d542fc17de1449203002484e107f" => :mojave
+    #sha256 "7a846731eb5b7c4149ab464355e3fd5f015c0777afae7314451e4fe882269548" => :high_sierra
   end
 
   depends_on "openssl"
@@ -24,7 +25,7 @@ class Sqlcipherdb4s < Formula
     ]
 
     # Build with full-text search enabled
-    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_GEOPOLY -DSQLITE_ENABLE_RTREE"
+    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_STAT4 -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_GEOPOLY -DSQLITE_ENABLE_RTREE -DSQLITE_SOUNDEX"
 
     system "./configure", *args
     system "make"

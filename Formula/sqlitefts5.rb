@@ -4,13 +4,13 @@ class Sqlitefts5 < Formula
   url "https://sqlite.org/2019/sqlite-autoconf-3270200.tar.gz"
   version "3.27.2"
   sha256 "50c39e85ea28b5ecfdb3f9e860afe9ba606381e21836b2849efca6a0bfe6ef6e"
-  revision 2
+  revision 3
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
-    sha256 "f9588e984198c810d5d4188c8d5492eec1c4fdb8816be739627a8eb0bd2992dd" => :mojave
-    sha256 "5f5e435a872d7eaa21d1ba291b28a74643fb7a5638525275ce4ab80bed35bf1e" => :high_sierra
+    #sha256 "f9588e984198c810d5d4188c8d5492eec1c4fdb8816be739627a8eb0bd2992dd" => :mojave
+    #sha256 "5f5e435a872d7eaa21d1ba291b28a74643fb7a5638525275ce4ab80bed35bf1e" => :high_sierra
   end
 
   def install
@@ -24,6 +24,7 @@ class Sqlitefts5 < Formula
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS5=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_STAT4=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_SOUNDEX=1"
 
     args = %W[
       --prefix=#{prefix}
