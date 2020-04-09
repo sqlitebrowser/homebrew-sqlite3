@@ -1,15 +1,14 @@
 class Sqlitefts5 < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2019/sqlite-autoconf-3280000.tar.gz"
-  version "3.28.0"
-  sha256 "d61b5286f062adfce5125eaf544d495300656908e61fca143517afcc0a89b7c3"
-  #revision 3
+  url "https://sqlite.org/2020/sqlite-autoconf-3310100.tar.gz"
+  version "3.31.1"
+  sha256 "62284efebc05a76f909c580ffa5c008a7d22a1287285d68b7825a2b6b51949ae"
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
-    sha256 "e2bd7c4d04ad3c8a6933b65f38d65a297ecd880d6e0ef3ebbebdf364b3338813" => :mojave
+    #sha256 "e2bd7c4d04ad3c8a6933b65f38d65a297ecd880d6e0ef3ebbebdf364b3338813" => :mojave
     #sha256 "436401b01dd1ceafd7455df0b1c54ceaebf44c810d532b794875fb5eaa37b7fe" => :high_sierra
   end
 
