@@ -8,8 +8,7 @@ class Sqlcipherdb4s < Formula
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
     cellar :any
-    #sha256 "a16909ebca2e643e8c87be1e35a632872a33d542fc17de1449203002484e107f" => :mojave
-    #sha256 "7dbcdb76dee2f4be9b13a38cb3cd3aff55dab56e1e09028c4539a77ac8f1dace" => :high_sierra
+    sha256 "ee97698a3b632909bca4852b9de38af4279d55d647c2fa16f3cad9d6cdabffba" => :mojave
   end
 
   depends_on "openssl"
