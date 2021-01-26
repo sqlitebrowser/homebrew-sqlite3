@@ -5,11 +5,11 @@ class Sqlcipherdb4s < Formula
   sha256 "87458e0e16594b3ba6c7a1f046bc1ba783d002d35e0e7b61bb6b7bb862f362a7"
   head "https://github.com/sqlcipher/sqlcipher.git"
 
-#  bottle do
-#    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-#    cellar :any
-#    sha256 "d404897632361866460e705c572678b669a48c95383ec46b7af8bff0c6ca3b48" => :mojave
-#  end
+  bottle do
+    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
+    cellar :any
+    sha256 "3bd056d2297995ab66fa9ced2efa773a0d06efd8e8c01739b4cfde1b67979507" => :mojave
+  end
 
   depends_on "openssl"
 
