@@ -3,7 +3,7 @@ class Sqlitefts5 < Formula
   homepage "https://sqlite.org"
   url "https://sqlite.org/2021/sqlite-autoconf-3340100.tar.gz"
   version "3.34.1"
-  sha256 "be0d07b08969aa775c628f214c723955c0bfe880d72c3289a1ff54ad779b15d3"
+  sha256 "2a3bca581117b3b88e5361d0ef3803ba6d8da604b1c1a47d902ef785c1b53e89"
 
 #  bottle do
 #    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
