@@ -1,15 +1,15 @@
 class Sqlitefts5 < Formula
   desc "Command-line interface for SQLite"
-  homepage "https://sqlite.org/"
-  url "https://sqlite.org/2020/sqlite-autoconf-3330000.tar.gz"
-  version "3.33.0"
-  sha256 "106a2c48c7f75a298a7557bcc0d5f4f454e5b43811cc738b7ca294d6956bbb15"
+  homepage "https://sqlite.org"
+  url "https://sqlite.org/2021/sqlite-autoconf-3340100.tar.gz"
+  version "3.34.1"
+  sha256 "be0d07b08969aa775c628f214c723955c0bfe880d72c3289a1ff54ad779b15d3"
 
-  bottle do
-    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-    cellar :any
-    sha256 "897ce57abea6d9da953c11554ba577f2334237aee853f6f416e5efcb550b512e" => :mojave
-  end
+#  bottle do
+#    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
+#    cellar :any
+#    sha256 "897ce57abea6d9da953c11554ba577f2334237aee853f6f416e5efcb550b512e" => :mojave
+#  end
 
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
