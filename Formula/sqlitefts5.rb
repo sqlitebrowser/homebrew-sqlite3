@@ -5,11 +5,10 @@ class Sqlitefts5 < Formula
   version "3.35.5"
   sha256 "f52b72a5c319c3e516ed7a92e123139a6e87af08a2dc43d7757724f6132e6db0"
 
-#  bottle do
-#    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-#    cellar :any
-#    sha256 "5b1fa0152afda0246b51bb1bd23d6b5edc6e2c1effa90b02dee6fa167e4672fa" => :mojave
-#  end
+  bottle do
+    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
+    sha256 cellar: :any, mojave: "dfe9877432a293d87c5e1f0d866050e2b3f0b6342fd148521b32944218a17635"
+  end
 
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
