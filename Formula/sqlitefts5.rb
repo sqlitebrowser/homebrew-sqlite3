@@ -1,13 +1,13 @@
 class Sqlitefts5 < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org"
-  url "https://sqlite.org/2021/sqlite-autoconf-3350500.tar.gz"
-  version "3.35.5"
-  sha256 "f52b72a5c319c3e516ed7a92e123139a6e87af08a2dc43d7757724f6132e6db0"
+  url "https://sqlite.org/2022/sqlite-autoconf-3370200.tar.gz"
+  version "3.37.2"
+  sha256 "4089a8d9b467537b3f246f217b84cd76e00b1d1a971fe5aca1e30e230e46b2d8"
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-    sha256 cellar: :any, mojave: "dfe9877432a293d87c5e1f0d866050e2b3f0b6342fd148521b32944218a17635"
+    sha256 cellar: :any, arm64_monterey: "158fea2a322d884fd1810d83a78ad9c741d9838eb39cfa0548f6ed23aeada907"
   end
 
   def install
@@ -22,6 +22,10 @@ class Sqlitefts5 < Formula
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_STAT4=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1"
     ENV.append "CPPFLAGS", "-DSQLITE_SOUNDEX=1"
+
+    # Options that sound like they'll be useful
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_MEMORY_MANAGEMENT=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_SNAPSHOT=1"
 
     args = %W[
       --prefix=#{prefix}
