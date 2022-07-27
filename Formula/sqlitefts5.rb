@@ -1,9 +1,9 @@
 class Sqlitefts5 < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org"
-  url "https://sqlite.org/2022/sqlite-autoconf-3380500.tar.gz"
-  version "3.38.5"
-  sha256 "5af07de982ba658fd91a03170c945f99c971f6955bc79df3266544373e39869c"
+  url "https://sqlite.org/2022/sqlite-autoconf-3390200.tar.gz"
+  version "3.39.2"
+  sha256 "852be8a6183a17ba47cee0bbff7400b7aa5affd283bf3beefc34fcd088a239de"
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
