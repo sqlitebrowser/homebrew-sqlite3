@@ -10,14 +10,10 @@ class Db4sqt5 < Formula
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   revision 1
 
-  #bottle do
-  #  sha256 cellar: :any,                 arm64_monterey: "e37b064c7fe7fc1d0c3a5be70de69211be80fc3ca72d6823e888244ed595f92d"
-  #  sha256 cellar: :any,                 arm64_big_sur:  "ead12a6fa247706a09548308910b9c67462e3eee7d87b889510f1f228c3c3c63"
-  #  sha256 cellar: :any,                 monterey:       "5f3b5cd894343416acb2b8596beb4dc63d0ec8728c20a7b07d774de1c4b50615"
-  #  sha256 cellar: :any,                 big_sur:        "b7aa1ee4202791fa12420802ffdf0367b0e8037ff0024c6cbfc1e9bbfda236fe"
-  #  sha256 cellar: :any,                 catalina:       "11784f01c72fbd560aa147f85ab6fd942cd8fca74da6f74ff75685c319352d2c"
-  #  sha256 cellar: :any_skip_relocation, x86_64_linux:   "c08655ba3a8c3a039b3550a87716004d44730a8dcdd6fad9ca5d608ef5e5ed7e"
-  #end
+  bottle do
+     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
+     sha256 cellar: :any, arm64_monterey: "1c8bf92e769532a6368fcd1e3c0c28d30f90be7407730cd228d390307d22af52"
+  end
 
   keg_only :versioned_formula
 
