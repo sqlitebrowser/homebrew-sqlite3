@@ -3,23 +3,26 @@
 class Db4sqt5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz"
-  sha256 "5a97827bdf9fd515f43bc7651defaf64fecb7a55e051c79b8f80510d0e990f06"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.6/single/qt-everywhere-opensource-src-5.15.6.tar.xz"
+  sha256 "ebc77d27934b70b25b3dc34fbec7c4471eb451848e891c42b32409ea30fe309f"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
 
-  bottle do
-     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-     sha256 cellar: :any, arm64_monterey: "1c8bf92e769532a6368fcd1e3c0c28d30f90be7407730cd228d390307d22af52"
-  end
+  #bottle do
+  #  sha256 cellar: :any,                 arm64_monterey: "11502ca833f43bdb63d5ddc6dd5001bed0d4f95013ecc9994efc2cb5099d1576"
+  #  sha256 cellar: :any,                 arm64_big_sur:  "c272abb412b3785dcdc4818e205664c555ce342e392101b3d103ffc86f944d67"
+  #  sha256 cellar: :any,                 monterey:       "61e3d102e02234669ca75b831971101557a04884e1fa12c2394d285dfb53470a"
+  #  sha256 cellar: :any,                 big_sur:        "3fb3e747873a0ccbbcb1356cd5e7fe5d4b8b2c9c35fc83eb3b15ee60229d881a"
+  #  sha256 cellar: :any,                 catalina:       "4ce6567638e9396bea83193d69f93db2b8bada1cefbcd086a39f1b86ce62bab3"
+  #  sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e2c21ca6111ebc1a6c772105259be0b33c4aa48a2156befdd4f284aa8bbba08"
+  #end
 
   keg_only :versioned_formula
 
   depends_on "node"       => :build
+  depends_on "pkg-config" => :build
   depends_on "python@3.10" => :build
-  depends_on "pkg-config"
   depends_on xcode: :build
   depends_on "freetype"
   depends_on "glib"
@@ -28,19 +31,18 @@ class Db4sqt5 < Formula
   depends_on macos: :sierra
   depends_on "pcre2"
   depends_on "webp"
-  depends_on "sqlitefts5"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "bison"
   uses_from_macos "flex"
   uses_from_macos "krb5"
   uses_from_macos "libxslt"
+  uses_from_macos "sqlite"
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "at-spi2-core"
     depends_on "fontconfig"
-    depends_on "gcc"
     depends_on "harfbuzz"
     depends_on "icu4c"
     depends_on "libdrm"
@@ -49,8 +51,8 @@ class Db4sqt5 < Formula
     depends_on "libproxy"
     depends_on "libsm"
     depends_on "libvpx"
-    depends_on "libxkbcommon"
     depends_on "libxcomposite"
+    depends_on "libxkbcommon"
     depends_on "libxkbfile"
     depends_on "libxrandr"
     depends_on "libxtst"
@@ -116,15 +118,15 @@ class Db4sqt5 < Formula
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtbase/commit/ccc0f5cd016eb17e4ff0db03ffed76ad32c8894d.patch"
-    sha256 "ad97b5dbb13875f95a6d9ffc1ecf89956f8249771a4e485bd5ddcbe0c8ba54e8"
+    url "https://invent.kde.org/qt/qt/qtbase/commit/92646a2e0a4264dc9da97bc5e884a0116c0a32fb.patch"
+    sha256 "bd1a637da853e841259a9824481fe05b9c01563cc4e077e95fa8e0a7a479c653"
     directory "qtbase"
   end
 
   # Fix build for GCC 11
   patch do
-    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/8da88589929a1d82103c8bbfa80210f3c1af3714.patch"
-    sha256 "9faedb41c80f23d4776f0be64f796415abd00ef722a318b3f7c1311a8f82e66d"
+    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/2e36092b74206315a637fd68eceb5e864e6dd0dd.patch"
+    sha256 "430ca28652821421aac942de51387ca42de20383b6b1e84137665b4f5a37414f"
     directory "qtdeclarative"
   end
 
@@ -168,6 +170,13 @@ class Db4sqt5 < Formula
       -system-zlib
     ]
 
+    # Use OpenSSL rather then SecureTransport
+    ENV["OPENSSL_LIBS"] = "-L/opt/homebrew/opt/openssl\@1.1/lib/"
+    ENV.append "OPENSSL_LIBS", "-lssl"
+    ENV.append "OPENSSL_LIBS", "-lcrypto"
+    args << "-openssl-linked"
+    args << "-I/opt/homebrew/opt/openssl\@1.1/include/"
+
     if OS.mac?
       args << "-no-rpath"
       args << "-no-assimp" if Hardware::CPU.arm?
@@ -194,10 +203,6 @@ class Db4sqt5 < Formula
         -webengine-pulseaudio
         -webengine-webp
       ]
-
-      # Change default mkspec for qmake on Linux to use brewed GCC
-      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
-      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}g++", ENV.cxx
 
       # Homebrew-specific workaround to ignore spurious linker warnings on Linux.
       inreplace "qtwebengine/src/3rdparty/chromium/build/config/compiler/BUILD.gn",
@@ -285,7 +290,7 @@ __END__
 @@ -43,4 +43,6 @@
  #include <qpa/qplatformgraphicsbuffer.h>
  #include <private/qcore_mac_p.h>
-+ 
++
 +#include <CoreGraphics/CGColorSpace.h>
 
  QT_BEGIN_NAMESPACE
