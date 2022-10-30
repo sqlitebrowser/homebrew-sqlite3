@@ -171,7 +171,7 @@ class Db4sqt5 < Formula
     ENV["OPENSSL_LIBS"] = "-L/opt/homebrew/opt/openssl\@1.1/lib/"
     ENV.append "OPENSSL_LIBS", "-lssl"
     ENV.append "OPENSSL_LIBS", "-lcrypto"
-    args << "-openssl-linked"
+    args << "-openssl"
     args << "-I/opt/homebrew/opt/openssl\@1.1/include/"
 
     if OS.mac?
