@@ -10,9 +10,9 @@ class Db4sqt5 < Formula
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
-    rebuild 1
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-    sha256 cellar: :any, arm64_monterey: "147044d90e51c67139bfeb169b61760b2b1f55945b0f554ed0943f91a446b2b7"
+    rebuild 2
+    sha256 cellar: :any, arm64_monterey: "5a6fbd84eee434e990c1432a38388cd79016f15b4e775c1a3ea2289c25e6260d"
   end
 
   keg_only :versioned_formula
