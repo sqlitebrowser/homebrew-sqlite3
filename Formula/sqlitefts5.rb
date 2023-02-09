@@ -7,8 +7,8 @@ class Sqlitefts5 < Formula
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-    #sha256 cellar: :any, catalina: "051d32c56d9ee374b25af4ac41911f43ce3300e7a3fe24f721c3d1bb5c8152a6"
-    #sha256 cellar: :any, arm64_monterey: "442f195b26e6b4394bdad5768794a4029f7d3e538baaa1f8f99376a220c7439b"
+    sha256 cellar: :any, catalina: "c55264bf4fabac7a9e3f60456d8510cf922a7bdd01b11018dd488a041b5a8609"
+    sha256 cellar: :any, arm64_monterey: "6f6e934fe1ac8e641a5e7fc49aadf630ca336b5bd142163fe5452c4691ea4595"
   end
 
   def install
