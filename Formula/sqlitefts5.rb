@@ -1,14 +1,14 @@
 class Sqlitefts5 < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org"
-  url "https://sqlite.org/2022/sqlite-autoconf-3400100.tar.gz"
-  version "3.40.1"
-  sha256 "2c5dea207fa508d765af1ef620b637dcb06572afa6f01f0815bd5bbf864b33d9"
+  url "https://sqlite.org/2023/sqlite-autoconf-3410000.tar.gz"
+  version "3.41.0"
+  sha256 "49f77ac53fd9aa5d7395f2499cb816410e5621984a121b858ccca05310b05c70"
 
   bottle do
     root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-    sha256 cellar: :any, catalina: "c55264bf4fabac7a9e3f60456d8510cf922a7bdd01b11018dd488a041b5a8609"
-    sha256 cellar: :any, arm64_monterey: "6f6e934fe1ac8e641a5e7fc49aadf630ca336b5bd142163fe5452c4691ea4595"
+    #sha256 cellar: :any, catalina: "c55264bf4fabac7a9e3f60456d8510cf922a7bdd01b11018dd488a041b5a8609"
+    #sha256 cellar: :any, arm64_monterey: "6f6e934fe1ac8e641a5e7fc49aadf630ca336b5bd142163fe5452c4691ea4595"
   end
 
   def install
@@ -23,6 +23,8 @@ class Sqlitefts5 < Formula
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_STAT4=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1"
     ENV.append "CPPFLAGS", "-DSQLITE_SOUNDEX=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_MATH_FUNCTIONS=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_MAX_ATTACHED=125"
 
     # Options that sound like they'll be useful
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_MEMORY_MANAGEMENT=1"
