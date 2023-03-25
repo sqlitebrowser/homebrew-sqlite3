@@ -5,12 +5,6 @@ class Sqlitefts5 < Formula
   version "3.41.1"
   sha256 "4dadfbeab9f8e16c695d4fbbc51c16b2f77fb97ff4c1c3d139919dfc038c9e33"
 
-  bottle do
-    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-    sha256 cellar: :any, catalina: "17a13ff953d9d06cdf2585203c058b35f26e7cd93dc65784db0d1ab71a6e9cdd"
-    sha256 cellar: :any, arm64_monterey: "4fafc72a8588b2ae26dc107e231e67f9ad8a889a21992d114ad731b0ea70e46a"
-  end
-
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
