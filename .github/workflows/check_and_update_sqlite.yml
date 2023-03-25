@@ -2,7 +2,7 @@ name: Check and Update SQLite
 
 on:
   schedule:
-    - cron: '0 0 * * SUN' # every Sunday at midnight
+    - cron: '0 0 * * *' # every day at midnight
   workflow_dispatch:
 jobs:
   check_and_update_sqlite:
