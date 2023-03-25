@@ -1,0 +1,28 @@
+name: Check and Update SQLite
+
+on:
+  schedule:
+    - cron: '0 0 * * SUN' # every Sunday at midnight
+  workflow_dispatch:
+jobs:
+  check_and_update_sqlite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Grant execute permission for script
+        run: chmod +x .github/scripts/check_and_update_sqlite.sh
+      - name: Check Latest SQLite Version
+        id: check-latest-sqlite-version
+        run: |
+          source .github/scripts/check_and_update_sqlite.sh
+          echo "CURRENT_VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
+          echo "LATEST_VERSION=$VERSION" >> $GITHUB_ENV
+          echo "IS_SQLITE_UPDATED=$IS_SQLITE_UPDATED" >> $GITHUB_ENV
+      - name: Commit and Push
+        if: env.IS_SQLITE_UPDATED == 1
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula/
+          git commit -m "Bump SQLite from ${{ env.CURRENT_VERSION }} to ${{ env.LATEST_VERSION }}"
+          git push origin master
