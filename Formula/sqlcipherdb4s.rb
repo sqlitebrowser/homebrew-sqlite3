@@ -1,15 +1,9 @@
 class Sqlcipherdb4s < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "https://www.zetetic.net/sqlcipher/"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v4.5.2.tar.gz"
-  sha256 "6925f012deb5582e39761a7d4816883cc15b41851a8e70b447c223b8ef406e2a"
+  url "https://github.com/sqlcipher/sqlcipher/archive/v4.5.4.tar.gz"
+  sha256 "ea052fe634d729f9dd6b624016104de796faf87e487a9e868a07faee35957771"
   head "https://github.com/sqlcipher/sqlcipher.git"
-
-  bottle do
-    root_url "https://nightlies.sqlitebrowser.org/homebrew_bottles"
-    sha256 cellar: :any, arm64_monterey: "56ee8c01158e56af1fddf2bd92c1c69711f0b082b2b8028473b5cf8033cfee3d"
-    sha256 cellar: :any, catalina: "1ac0cab10dcc87211c1c67868a788b89f84dd8acf59e12a012c8a75e28c60a0f"
-  end
 
   depends_on "openssl"
 
